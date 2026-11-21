@@ -9,10 +9,11 @@
 
 **See how your app actually fits together.**
 
-Claude or Codex reads your codebase and draws an interactive map of it. Every part, file and web request gets a plain-English name, and every connection between them is shown.
+Claude, Codex or Pi reads your codebase and draws an interactive map of it. Every part, file and web request gets a plain-English name, and every connection between them is shown.
 
 [![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-D97757?style=flat-square)](https://code.claude.com/docs/en/overview)
 [![Codex plugin](https://img.shields.io/badge/Codex-plugin-111?style=flat-square)](docs/codex.md)
+[![Pi skill](https://img.shields.io/badge/Pi-skill-111?style=flat-square)](docs/pi.md)
 [![Tests](https://img.shields.io/github/actions/workflow/status/haydenschmitty/floorplan/test.yml?branch=main&style=flat-square&label=tests)](https://github.com/haydenschmitty/floorplan/actions/workflows/test.yml)
 [![Version](https://img.shields.io/badge/version-0.11.0-111?style=flat-square)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-111?style=flat-square)](LICENSE)
@@ -35,7 +36,9 @@ Claude or Codex reads your codebase and draws an interactive map of it. Every pa
 
 You built an app, probably with a lot of help from AI, and it works. But ask "what happens when someone checks out?" or "what breaks if I change this?" and the honest answer is *no idea*.
 
-Floorplan gives you the diagram nobody drew. Ask Claude Code or Codex for a floorplan and a few minutes later you have a map you can explore, ask questions on, and keep up to date as you work.
+Floorplan gives you the diagram nobody drew. Ask Claude Code, Codex or Pi for a floorplan and a few minutes later you have a map you can explore, ask questions on, and keep up to date as you work.
+
+**Salesforce apps, too:** map local Lightning app navigation/pages, LWC, Aura and Visualforce, objects and relationships, Apex/Flows/rules/integrations, and permission sets/sharing declarations. Connections are traced from repository evidence; no org connection is needed, and the map does not claim deployed behavior or effective user access.
 
 - **For builders:** understand the app you made, in your own words, without reading the code.
 - **For teams:** onboard someone in minutes, from the big picture down to the exact file.
@@ -51,7 +54,7 @@ All three turn code into something you can see, and all three are worth knowing.
 | **Made for** | People who build with AI and don't read the code | Anyone explaining a system, a process or an idea | Developers getting to know a large codebase |
 | **What you get** | A zoomable map of your whole app: parts, files and endpoints, the screens, the requests between frontend and backend (even across repos), and outside services | A polished diagram in one of 10 types (architecture, sequence, ERD…) or a one-page explainer, from a repo or just a description | A knowledge graph of every file, function and class, with layers, a business-domain view and guided tours |
 | **Only here** | **Health check** (keys in code, open Supabase tables and Firebase rules, fakeable Stripe webhooks, endpoints anyone can use), **Recent work** (what your AI just changed, and why), blueprints from a PRD | 10 diagram types, image and video exports, diagrams of things that aren't code | Diff impact, a dashboard that adapts to your role, knowledge-base graphs |
-| **Runs in** | Claude Code, Codex | Claude Code, Codex, Cursor, OpenCode and more | Claude Code, Codex, Cursor, Copilot, Gemini CLI and more |
+| **Runs in** | Claude Code, Codex, Pi | Claude Code, Codex, Cursor, OpenCode and more | Claude Code, Codex, Cursor, Copilot, Gemini CLI and more |
 
 **Pick Floorplan** to understand and check an app you own. **Pick Archify** to draw a diagram for a doc, a talk or a decision. **Pick Understand Anything** to study a large codebase function by function.
 
@@ -163,7 +166,7 @@ Want to click around yourself? Open the [live demo](https://haydenschmitty.githu
 
 ## Install
 
-You need [Node.js 18+](https://nodejs.org) and either Claude Code or Codex. Floorplan runs on the plan you already have, with no API keys.
+You need [Node.js 18+](https://nodejs.org) and Claude Code, Codex or Pi (Pi's own runtime requirements also apply). Floorplan adds no dependencies or API keys; use your host's existing sign-in or provider setup.
 
 ### Claude Code
 
@@ -193,14 +196,27 @@ codex plugin add floorplan@floorplan
 
 Start a new chat and ask for a floorplan, or type `$floorplan`. The map's Ask bar runs on your own Codex sign-in, with no API key. More in [Floorplan in Codex](docs/codex.md).
 
+### Pi
+
+From your project folder:
+
+```bash
+pi install --local git:github.com/haydenschmitty/floorplan
+pi
+```
+
+Grant project trust after reviewing the source, then ask for a floorplan or type `/skill:floorplan`. To try a local checkout without changing settings, run `pi -e /absolute/path/to/floorplan`. This package provides only the shared skill: no extension or hooks.
+
+**Pi builds and refreshes maps; browser Ask remains Claude/Codex-only.** Open `floorplan/index.html` and ask questions in the Pi conversation, or paste the map's ready-made prompts into Pi. More in [Floorplan in Pi](docs/pi.md).
+
 ## Quick start
 
-1. Open your project in Claude Code or Codex. For a frontend and backend in separate repos, open the folder that holds both.
+1. Open your project in Claude Code, Codex or Pi. For a frontend and backend in separate repos, open the folder that holds both.
 2. Ask:
    > Make me a floorplan of this app.
 
-   (In Codex you can also type `$floorplan`.)
-3. Explore. The map opens on its own, starting with a short tour.
+   (In Codex you can also type `$floorplan`; in Pi, `/skill:floorplan`.)
+3. Explore. The map opens on its own, starting with a short tour. In Pi, open the `floorplan/index.html` path from the reply.
 
 When you've done more work, ask:
 

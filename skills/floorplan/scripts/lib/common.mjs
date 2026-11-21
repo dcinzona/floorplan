@@ -95,6 +95,9 @@ const LANG_BY_EXT = {
   '.ts': 'typescript', '.tsx': 'typescript', '.mts': 'typescript', '.cts': 'typescript',
   '.js': 'javascript', '.jsx': 'javascript', '.mjs': 'javascript', '.cjs': 'javascript',
   '.vue': 'vue', '.svelte': 'svelte', '.astro': 'astro',
+  '.cls': 'apex', '.trigger': 'apex',
+  '.cmp': 'aura', '.app': 'aura', '.evt': 'aura', '.intf': 'aura', '.design': 'aura', '.auradoc': 'aura', '.tokens': 'aura',
+  '.page': 'visualforce', '.component': 'visualforce',
   '.py': 'python', '.pyi': 'python',
   '.go': 'go', '.rs': 'rust', '.java': 'java', '.kt': 'kotlin', '.kts': 'kotlin', '.scala': 'scala',
   '.cs': 'csharp', '.fs': 'fsharp', '.rb': 'ruby', '.php': 'php', '.swift': 'swift', '.dart': 'dart',
@@ -112,7 +115,7 @@ const THEME_FILE = 'layout/theme.liquid';
 export const themeRoots = (paths) => new Set(paths.filter((p) => p === THEME_FILE || p.endsWith('/' + THEME_FILE)).map((p) => p.slice(0, -THEME_FILE.length)));
 const CONFIG_EXT = new Set(['.json', '.yaml', '.yml', '.toml', '.ini', '.cfg', '.conf', '.xml', '.gradle', '.properties', '.env']);
 const CONFIG_NAMES = /^(dockerfile.*|makefile|procfile|justfile|\.env\..*|\.?[\w-]*rc|gemfile|rakefile|cargo\.toml|go\.mod|pyproject\.toml|setup\.cfg|requirements.*\.txt)$/i;
-const JSON_CONFIG = /^(package|tsconfig.*|jsconfig|composer|manifest|app|components|turbo|nx|lerna|angular|firebase|vercel|now|renovate|tslint|.?eslintrc|.?babelrc|.?prettierrc|.*.config|.*rc|settings|launch|tasks|deno|biome|project|workspace|devcontainer|cdk|serverless|appsettings.*|openapi|swagger).json$/i;
+const JSON_CONFIG = /^(sfdx-project|package|tsconfig.*|jsconfig|composer|manifest|app|components|turbo|nx|lerna|angular|firebase|vercel|now|renovate|tslint|.?eslintrc|.?babelrc|.?prettierrc|.*.config|.*rc|settings|launch|tasks|deno|biome|project|workspace|devcontainer|cdk|serverless|appsettings.*|openapi|swagger).json$/i;
 const DOC_EXT = new Set(['.md', '.mdx', '.rst', '.adoc', '.txt']);
 const DATA_EXT = new Set(['.csv', '.tsv', '.jsonl', '.ndjson', '.parquet', '.sqlite', '.db', '.xlsx', '.xls', '.avro']);
 const ASSET_EXT = new Set(['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.webp', '.avif', '.bmp', '.woff', '.woff2', '.ttf', '.otf', '.eot',

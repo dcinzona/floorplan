@@ -1,7 +1,8 @@
 {
   "name": "floorplan",
   "private": true,
-  "description": "Floorplan, a Claude Code plugin. No dependencies: this file only gives `npm test` a home.",
+  "description": "Floorplan: a shared skill for Claude Code, Codex and Pi. No dependencies.",
+  "pi": { "skills": ["./skills/floorplan"] },
   "license": "MIT",
   "engines": { "node": ">=18" },
   "scripts": {

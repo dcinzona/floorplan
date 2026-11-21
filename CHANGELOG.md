@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Install Floorplan as a skill-only Pi package from git or a local checkout; invoke `/skill:floorplan` to build and refresh neutral maps. Browser Ask remains a separate Claude Code/Codex integration.
+- Map local Salesforce apps and metadata with source-backed navigation, data, automation, integration and access declarations; include Apex, Aura and Visualforce source files without changing the map format.
+
 ## 0.11.0 (2026-11-16)
 
 - **Serverless Framework endpoints are on the map:** a backend whose endpoints are declared in `serverless.yml` rather than in code showed none, so the website's requests to it weren't connected and Health skipped its sign-in check. Endpoints now come from each function's `http` and `httpApi` events (`path` and `method`, `any` and `*`, and the short `http: GET /orders` form) in `serverless.yml`, `serverless-*.yml` and `serverless_*.yml`, including function lists split across files included with `${file(./functions.yml)}`. Each endpoint sits in the file its `handler:` names (`src/orders.create` is `create` in `src/orders.ts`), followed through a file that re-exports it, or into another file's function when the handler only passes the request on to it (`(event) => withEvent(event, options, orders.create)`). Health counts an `authorizer`, `private: true` (an API key) or a sign-in check handed to the wrapper as protecting an endpoint, and still reads the handler for a check of its own. CloudFormation tags (`!Ref`, `!GetAtt`, `!Sub`), `${opt:…}` and `${self:…}` variables and anchors are read without trouble, and the scan summary lists schedules, queues, streams and other background functions for a worker node. Sample configs in test folders add no endpoints. Reported and fixed by @ShehanEk in #131 and #132.

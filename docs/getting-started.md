@@ -2,7 +2,7 @@
 
 Prefer to watch? The [walkthrough video](https://youtu.be/NTUUzC7L_NQ) covers installing Floorplan and touring a finished map.
 
-Floorplan works in **Claude Code** and in **Codex**. Making and using a map is the same in both; only installing differs. This guide shows Claude Code, and [Floorplan in Codex](codex.md) has the Codex steps.
+Floorplan works in **Claude Code**, **Codex** and **Pi**. This guide shows Claude Code; [Floorplan in Codex](codex.md) and [Floorplan in Pi](pi.md) cover their installation and host differences. Pi builds and refreshes the same maps, but browser Ask remains Claude/Codex-only: ask questions in your Pi conversation instead.
 
 ## What you need
 
@@ -11,6 +11,8 @@ Floorplan works in **Claude Code** and in **Codex**. Making and using a map is t
 - **With Claude Code, recommended: the [Claude Code CLI](https://code.claude.com/docs/en/overview)**, even if you mainly use the desktop app. With it, the map's Ask bar can read your actual code when answering questions. Codex needs nothing extra: its app includes what the Ask bar uses.
 
 ## Install
+
+**In Pi**, run `pi install --local git:github.com/haydenschmitty/floorplan` from your project folder, start Pi and grant project trust after reviewing the source, then type `/skill:floorplan`. See [Floorplan in Pi](pi.md) for local checkout trials and limits.
 
 **In Codex**, open **Plugins → Add a marketplace**, enter `haydenschmitty/floorplan`, and install Floorplan. Details in [Floorplan in Codex](codex.md#install).
 
